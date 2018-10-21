@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="google-signin-client_id" content="470757110939-f04emsgj51rlrre05q3flojgvh73qg5k.apps.googleusercontent.com">
+
+    <title>{{title}}</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-datepicker.min.css" rel="stylesheet">
+
+    <!-- Select2 CSS -->
+    <link href="/css/select2.min.css" rel="stylesheet">
+    <link href="/css/select2-bootstrap4.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper" class="toggled">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="/">
+                        Service Hour Record
+                    </a>
+                </li>
+                <li>
+                    <a href="/check/ind">Check individual hours</a>
+                </li>
+                <li>
+                    <a href="/input">Input service hours</a>
+                </li>
+                <li>
+                    <a href="/check/act">Activity records</a>
+                </li>
+                <li>
+                    <a href="/check/tot">Total records</a>
+                </li>
+                <li>
+                    <a href="/check/mvmt">Volunteer movement</a>
+                </li>
+                <li>
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                </li>
+            </ul>
+
+            
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" id="menu-toggle" class="btn">Menu</button>
+            <div class="container-fluid">
+                {{{body}}}
+            </div>
+            
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/select2.min.js"></script>
+    <script src="/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- Custom Javascript -->
+    <script src="/js/main.js"></script>
+    
+    <!-- Google Authentication Javascript -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
+    
+
+</body>
+
+</html>
