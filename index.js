@@ -1,15 +1,35 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
+const sqlite3 = require('sqlite3').verbose()
 const path = require('path')
-const mongoose = require('mongoose')
+//const mongoose = require('mongoose')
 
 //Mongoose connection
-mongoose.connect('mongodb://localhost/servicehour')
-let db = mongoose.connection
+//mongoose.connect('mongodb://localhost/servicehour')
+//let db = mongoose.connection
 
 //Test database connection
-db.once('open', () => {
+/*db.once('open', () => {
     console.log('Connected to MongoDB')
+})*/
+
+//Initialize Database
+var db = new sqlite3.Database('servicehour');
+
+db.serialize(() => {
+    db.run(`CREATE TABLE IF NOT EXISTS namelist (
+        sid INT PRIMARY KEY,
+        ename VARCHAR(255),
+        sex VARCHAR(1)
+    )`)
+
+    db.run(`CREATE TABLE IF NOT EXISTS record (
+        rid INTEGER PRIMARY KEY AUTOINCREMENT,
+        applicant VARCHAR(255),
+        hours INT,
+        day DATE,
+        sid INT
+    )`)
 })
 
 //Inistialize app

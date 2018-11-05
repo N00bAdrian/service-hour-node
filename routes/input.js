@@ -7,4 +7,10 @@ router.get('/', (req,res) => {
     })
 })
 
+router.get('/namelist', (req,res) => {
+    res.render('namelist', {
+        title: 'Update Namelist'
+    })
+})
+
 module.exports = router
