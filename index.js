@@ -1,22 +1,23 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
-const sqlite3 = require('sqlite3').verbose()
+//const sqlite3 = require('sqlite3').verbose()
 const path = require('path')
-//const mongoose = require('mongoose')
+const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
 
 //Mongoose connection
-//mongoose.connect('mongodb://localhost/servicehour')
-//let db = mongoose.connection
+mongoose.connect('mongodb://localhost:27017/servicehour')
+let db = mongoose.connection
 
 //Test database connection
-/*db.once('open', () => {
+db.once('open', () => {
     console.log('Connected to MongoDB')
-})*/
+})
 
 //Initialize Database
-var db = new sqlite3.Database('servicehour');
+//var db = new sqlite3.Database('servicehour');
 
-db.serialize(() => {
+/*db.serialize(() => {
     db.run(`CREATE TABLE IF NOT EXISTS namelist (
         sid INT PRIMARY KEY,
         ename VARCHAR(255),
@@ -30,7 +31,7 @@ db.serialize(() => {
         day DATE,
         sid INT
     )`)
-})
+})*/
 
 //Inistialize app
 const app = express()
@@ -47,10 +48,18 @@ app.engine('handlebars', hbs.engine)
 
 app.set('view engine', 'handlebars')
 
+//Body Parser Middleware
+//parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended: false}))
+
+//parse application/json
+app.use(bodyParser.json())
+
 //Set static folder
 app.use(express.static(path.join(__dirname, 'public')))
 
-
+//Bring in models
+let Record = require('./models/record')
 
 //Home directory
 app.get('/', (req, res) => {

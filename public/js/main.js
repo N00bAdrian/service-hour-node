@@ -7,6 +7,13 @@ $(document).ready(() => {
 
     $('#dropdown').select2();
     $('#datepicker').datepicker({
-        startDate: '-3d'
+        "setDate": "now"
     });
+    function today(){
+        var d = new Date();
+        var curr_date = d.getDate();
+        var curr_month = d.getMonth()+1;
+        var curr_year = d.getFullYear();
+        document.write(curr_month+"/"+curr_date+"/"+curr_year);
+    }
 });

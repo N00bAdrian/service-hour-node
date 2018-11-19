@@ -5,22 +5,22 @@
         
                 <div class="form-group">
                     <label>Applicant/Activity</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="applicant">
                 </div>
                 <div class="form-group">
                     <label>Hours</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="hours"> 
                 </div>
                 <div class="form-group">
                     <label>Date</label>
-                    <input type="text" class="form-control" id="datepicker" onkeydown="return false">
+                    <input type="text" class="form-control" id="datepicker" onkeydown="return false" name="date">
                 </div>
                 <div class="form-group">
                     <label>Member(s)</label>
                     <select id="dropdown" class="form-control" name="sid[]", multiple="multiple">
-                        <option>2013096</option>
-                        <option>2013086</option>
-                        <option>2013092</option>
+                        {{#each namelist}}
+                            <option>{{this}}</option>
+                        {{/each}}
                     </select>
                 </div>
                 <submit class="btn btn-primary">Submit</submit>
